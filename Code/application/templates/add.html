@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+<h2>Add a player</h2>
+
+<form method= 'POST' action=''>
+    {{ form.hidden_tag() }} {{ form.name }}
+    {% if form.name.errors %}
+        {% for error in form.name.errors %}
+            {{ error}}
+        {% endfor %}
+    {% endif %}
+    <br><br>
+    {{ form.submit }}
+</form>
+
+{% endblock body_content %}

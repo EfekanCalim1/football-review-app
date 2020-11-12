@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+{% for players in all_players %}
+
+<h2>{{ players.name }}</h2>
+<form method= '' action='{{ url_for("update", id=players.id) }}'>
+        <button>Update</button>
+</form>
+
+<form method= '' action='{{ url_for("delete", id=players.id) }}'>
+        <button>Delete</button>
+</form>
+
+<form method= '' action='{{ url_for("addreview", id=players.id) }}'>
+        <button>Add</button>
+</form>
+<br>
+
+{ % endfor % }
+
+{% endblock body_content % }
+
