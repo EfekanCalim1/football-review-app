@@ -11,6 +11,8 @@
         {% endfor %}
     {% endif %}
     <br><br>
+    {{ form.hidden_tag() }} {{ form.name }}
+    <br><br>
     {{ form.submit }}
 </form>
 
