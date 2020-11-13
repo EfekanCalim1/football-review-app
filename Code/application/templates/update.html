@@ -3,11 +3,15 @@
 
 <form method= 'POST' action=''>
     {{ form.hidden_tag() }}
-        {{ form.task }} <br>
+        {{ form.name.label }} {{ form.name }} 
+        <br>
         {% if form.task.errors %}
             {% for error in form.task.errors %}
                 {{ error }}<br>
-            {% endfor %}
+            
+                {% endfor %}
+        {{ form.hidden_tag() }}
+        {{ form.team.label }} {{ form.team }}
         {% endif %}
         {{ form.submit }}
     </form>
