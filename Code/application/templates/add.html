@@ -4,14 +4,14 @@
 <h2>Add a player</h2>
 
 <form method= 'POST' action=''>
-    {{ form.hidden_tag() }} {{ form.name }}
+    {{ form.name.label }}
     {% if form.name.errors %}
         {% for error in form.name.errors %}
             {{ error}}
         {% endfor %}
     {% endif %}
     <br><br>
-    {{ form.hidden_tag() }} {{ form.team }}
+     {{ form.team.label }}
     <br><br>
     {{ form.submit }}
 </form>

@@ -14,6 +14,7 @@ def add():
     form = PlayersForm()
     if form.validate_on_submit():
         new_player = Players(name=form.name.data)
+        player_team = Players(team=form.team.data)
         db.session.add(new_player)
         db.session.commit()
         return redirect(url_for('index'))
