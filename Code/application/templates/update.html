@@ -5,13 +5,11 @@
     {{ form.hidden_tag() }}
         {{ form.name.label }} {{ form.name }} 
         <br>
-        {% if form.players.errors %}
+        {% if form.name.errors %}
             {% for error in form.name.errors %}
                 {{ error }}<br>
             
                 {% endfor %}
-        {{ form.hidden_tag() }}
-        {{ form.team.label }} {{ form.team }}
         {% endif %}
         {{ form.submit }}
     </form>
