@@ -2,7 +2,7 @@
 {% block body_content %}
 <br><br>
 {% for review in reviews %}
-<h2>{{ review.player.name}}</h2>
+<h2>{{ review.players.name}}</h2>
 <p>Review: {{review.rev}}</p><br>
 <p>Rating: {{review.rating}}</p>
 {% endfor %}
