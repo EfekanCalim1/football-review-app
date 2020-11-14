@@ -22,7 +22,7 @@ def add():
 @app.route('/update/<int:idnum>', methods= ['GET', 'POST'])
 def update(idnum):
     form = PlayersForm()
-    players_update = Players.query.get(id)
+    players_update = Players.query.get(idnum)
     if form.validate_on_submit():
         players_update.name = form.name.data
         db.session.commit()
@@ -31,7 +31,7 @@ def update(idnum):
 
 @app.route('/delete/<int:idnum>')
 def delete(idnum):
-    players_delete = Players.query.get(id)
+    players_delete = Players.query.get(idnum)
     db.session.delete(players_delete)
     db.session.commit()
     return redirect(url_for('index'))
