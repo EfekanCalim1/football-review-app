@@ -13,7 +13,11 @@ def index():
 def add():
     form = PlayersForm()
     if form.validate_on_submit():
+<<<<<<< HEAD
         new_player = Players(name=form.name.data, team=form.team.data)
+=======
+        new_player = Players(name=form.name.data,team=form.team.data)
+>>>>>>> 8620409ff066e252494e2487ed4f2ac84718f660
         db.session.add(new_player)
         db.session.commit()
         return redirect(url_for('index'))
