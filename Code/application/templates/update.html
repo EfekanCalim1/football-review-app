@@ -5,7 +5,7 @@
     {{ form.hidden_tag() }}
         {{ form.name.label }} {{ form.name }} 
         <br>
-        {% if form.task.errors %}
+        {% if form.players.errors %}
             {% for error in form.task.errors %}
                 {{ error }}<br>
             

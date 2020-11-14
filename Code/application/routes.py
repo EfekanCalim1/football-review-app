@@ -19,8 +19,8 @@ def add():
         return redirect(url_for('index'))
     return render_template('add.html', form=form)
 
-@app.route('/update/<int:id>', methods= ['GET', 'POST'])
-def update(id):
+@app.route('/update/<int:idnum>', methods= ['GET', 'POST'])
+def update(idnum):
     form = PlayersForm()
     players_update = Players.query.get(id)
     if form.validate_on_submit():
@@ -29,24 +29,24 @@ def update(id):
         return redirect(url_for('index'))
     return render_template('update.html', form=form)
 
-@app.route('/delete/<int:id>')
-def delete(id):
+@app.route('/delete/<int:idnum>')
+def delete(idnum):
     players_delete = Players.query.get(id)
     db.session.delete(players_delete)
     db.session.commit()
     return redirect(url_for('index'))
 
-@app.route('/addreview/<int:id>', methods= ['GET', 'POST'])
-def add_review(id):
+@app.route('/addreview/<int:idnum>', methods= ['GET', 'POST'])
+def add_review(idnum):
     form = ReviewForm()
     if form.validate_on_submit():
-        new_review = Review(rev=form.rev.data, rating=form.rating.data, players_id=id)
+        new_review = Review(rev=form.rev.data, rating=form.rating.data, players_id=idnum)
         db.session.add(new_review)
         db.session.commit()
-        return redirect(url_for('reviews', id=id))
-    return render_template('addreview.html', form=form, players= Players.query.get(id))
+        return redirect(url_for('reviews', idnum=idnum))
+    return render_template('addreview.html', form=form, players= Players.query.get(idnum))
 
-@app.route('/reviews/<int:id>', methods=['GET', 'POST'])
-def reviews(id):
-    reviews = Review.query.filter_by(players_id=id).all()
+@app.route('/reviews/<int:idnum>', methods=['GET', 'POST'])
+def reviews(idnum):
+    reviews = Review.query.filter_by(players_id=idnum).all()
     return render_template ('reviews.html', reviews=reviews)
