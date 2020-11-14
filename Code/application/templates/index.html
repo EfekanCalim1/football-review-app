@@ -4,16 +4,20 @@
 {% for players in all_players %}
 
 <h2>{{ players.name }}</h2>
-<form method= '' action='{{ url_for("update", id=players.id) }}'>
+<form method= '' action='{{ url_for("update", idnum=players.id) }}'>
         <button>Update</button>
 </form>
 
-<form method= '' action='{{ url_for("delete", id=players.id) }}'>
+<form method= '' action='{{ url_for("delete", idnum=players.id) }}'>
         <button>Delete</button>
 </form>
 
-<form method= '' action='{{ url_for("add_review", id=players.id) }}'>
-        <button>Add</button>
+<form method= '' action='{{ url_for("add_review", idnum=players.id) }}'>
+        <button>Add Review</button>
+</form>
+
+<form method= '' action='{{ url_for("reviews", idnum=players.id)}}'>
+        <button>View Reviews</button>
 </form>
 
 {% endfor %}
