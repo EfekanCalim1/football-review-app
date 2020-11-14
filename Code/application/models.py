@@ -3,7 +3,6 @@ from application import db
 class Players(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    team = db.Column(db.String(50), nullable=False)
     review = db.relationship('Review', backref='players')
     
 class Review(db.Model):

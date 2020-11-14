@@ -6,7 +6,7 @@
         {{ form.name.label }} {{ form.name }} 
         <br>
         {% if form.players.errors %}
-            {% for error in form.task.errors %}
+            {% for error in form.name.errors %}
                 {{ error }}<br>
             
                 {% endfor %}

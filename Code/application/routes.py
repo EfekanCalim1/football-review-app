@@ -13,7 +13,7 @@ def index():
 def add():
     form = PlayersForm()
     if form.validate_on_submit():
-        new_player = Players(name=form.name.data, team=form.team.data)
+        new_player = Players(name=form.name.data)
         db.session.add(new_player)
         db.session.commit()
         return redirect(url_for('index'))

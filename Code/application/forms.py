@@ -21,9 +21,6 @@ class PlayersForm(FlaskForm):
                     PlayersCheck(message= 'You have already added this player')
                 ]
             )
-    team = StringField('Player Team', 
-                validators=[
-                    DataRequired()])
     submit = SubmitField('Add Player')
 
 class ReviewForm(FlaskForm):
