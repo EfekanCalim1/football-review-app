@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+<form method= 'POST' action=''>
+    {{ form.hidden_tag() }}
+    {{ form.playerid.label }} {{ form.playerid }} 
+    {% if form.playerid.errors %}
+            {% for error in form.playerid.errors %}
+                    {{ error }}
+            {% endfor %}
+    {% endif %}
+
+    {{ form.review.label }} {{ form.review }}
+    {% if form.review.errors %}
+            {% for error in form.review.errors %}
+                    {{ error }}
+            {% endfor %}
+    {% endif %}
+        {{ form.submit }}
+    </form>
+{% endblock body_content %}
+
+

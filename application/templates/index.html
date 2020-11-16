@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+{% for review in all_reviews %}
+{{ review.players.player }}
+{{ review.review }}
+<br>
+
+<form action="{{ url_for('update', review_id=review.id)}}">
+        <button>Update</button>
+</form>
+<form action="{{ url_for('delete', review_id=review.id)}}">
+        <button>Delete</button>
+</form>
+
+{% endfor %}
+
+{% endblock body_content %}
+
